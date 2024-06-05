@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+llama-index-readers-file
+llama-index-vector-stores-postgres
+llama-index-embeddings-huggingface
+llama-index-llms-llama-cpp
+psycopg2-binary
+pgvector
+asyncpg
+sqlalchemy[asyncio]
+greenlet

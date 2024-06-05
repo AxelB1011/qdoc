@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RAG Web Interface</title>
+</head>
+<body>
+    <h1>RAG Web Interface</h1>
+    <form id="ingestForm">
+        <h2>Ingest Data</h2>
+        <label for="filePath">File Path:</label>
+        <input type="text" id="filePath" name="filePath" required>
+        <button type="submit">Ingest</button>
+    </form>
+
+    <form id="queryForm">
+        <h2>Query Data</h2>
+        <label for="query">Query:</label>
+        <input type="text" id="query" name="query" required>
+        <button type="submit">Query</button>
+    </form>
+
+    <h2>Response</h2>
+    <pre id="response"></pre>
+
+    <script>
+        const apiUrl = 'https://your-render-or-railway-url'; // Replace with your API URL
+
+        document.getElementById('ingestForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const filePath = document.getElementById('filePath').value;
+            const response = await fetch(`${apiUrl}/ingest`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ file_path: filePath })
+            });
+            const result = await response.json();
+            alert(JSON.stringify(result));
+        });
+
+        document.getElementById('queryForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const query = document.getElementById('query').value;
+            const response = await fetch(`${apiUrl}/query`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query: query })
+            });
+            const result = await response.json();
+            document.getElementById('response').innerText = JSON.stringify(result, null, 2);
+        });
+    </script>
+</body>
+</html>
