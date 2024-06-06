@@ -1,5 +1,6 @@
 fastapi
 uvicorn
+llama-index-core
 llama-index-readers-file
 llama-index-vector-stores-postgres
 llama-index-embeddings-huggingface
