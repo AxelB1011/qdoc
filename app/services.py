@@ -1,3 +1,4 @@
+from http.client import HTTPException
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.llms.llama_cpp import LlamaCPP
 from llama_index.readers.file import PyMuPDFReader
@@ -6,6 +7,7 @@ from llama_index.core.schema import TextNode, NodeWithScore
 from llama_index.core.vector_stores import VectorStoreQuery
 from llama_index.core.query_engine import RetrieverQueryEngine
 import psycopg2
+from .models import QueryRequest, IngestRequest
 import os
 
 # Initialize components
@@ -27,7 +29,7 @@ password = os.getenv("DB_PASSWORD", "password")
 port = os.getenv("DB_PORT", "5432")
 user = os.getenv("DB_USER", "user")
 
-conn = psycopg2.connect(dbname="postgres", host=host, password=password, port=port, user=user)
+conn = psycopg2.connect(dbname=db_name, host=host, password=password, port=port, user=user)
 conn.autocommit = True
 
 with conn.cursor() as c:

@@ -9,3 +9,4 @@ pgvector
 asyncpg
 sqlalchemy[asyncio]
 greenlet
+pydantic
