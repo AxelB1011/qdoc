@@ -1,7 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="sr">
 <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
+
+    <!-- Todo: put here your site title -->
     <title>RAG Web Interface</title>
+    <!-- Todo: add some coding keywords below - e.g: (javascript, yourusername, etc) -->
+    <meta name="keywords" content="[username], [name], skill" />
+    <!-- Todo: improve your SEO by adding a small description of you -->
+    <meta name="description" content="[Your name here] | Developer" />
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="styles.scss" />
+    <script
+        defer
+        src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"
+    ></script>
+
+    <!-- Todo: remove the below script once you finish your portfolio -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body>
     <h1>RAG Web Interface</h1>
@@ -24,6 +47,7 @@
 
     <script>
         const apiUrl = 'https://qdoc-2knf.onrender.com'; // Replace with your API URL
+        // const apiUrl = 'http://0.0.0.0:8000'
 
         document.getElementById('ingestForm').addEventListener('submit', async function(event) {
             event.preventDefault();

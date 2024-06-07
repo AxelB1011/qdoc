@@ -1,5 +1,5 @@
+from app import app
 from fastapi import HTTPException
-from . import app
 from .models import QueryRequest, IngestRequest
 from .services import ingest_data, query_data
 
